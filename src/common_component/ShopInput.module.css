@@ -1,0 +1,14 @@
+.input{
+  border-radius: 4px;
+  border: none;
+  outline: 2px solid skyblue;
+  padding: 2px 4px;
+  
+}
+
+input:focus{
+  outline: 2px solid red;
+}
+.wide{
+  width: 100%;
+}

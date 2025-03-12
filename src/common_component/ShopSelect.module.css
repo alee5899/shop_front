@@ -1,0 +1,10 @@
+
+.select{
+  outline: 1px solid cornflowerblue;
+  border: none;
+  border-radius: 4px;
+}
+
+.select:focus{
+  outline: 1.5px solid cornflowerblue;
+}

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'BagelFatOne-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_JAMO@1.0/BagelFatOne-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+.container{
+  width: 70%;
+  margin: 0 auto;
+}
+*{
+  font-family: 'BagelFatOne-Regular';
+}
+/* ------------------------------- */
+/* 에러 메세지 디자인 */
+.error-msg{
+  font-size: 0.7rem !important;
+  color: red;
+  font-style: italic;
+}
+

@@ -1,0 +1,46 @@
+.container{
+  width: 50%;
+  margin: 0px auto;
+  margin-bottom: 20px;
+}
+
+.container > h3{
+  margin-bottom: 10px;
+  font-weight: 600;
+
+}
+
+.content_container{
+  width: 100%;
+  background-color: rgba(202, 202, 202, 0.15);
+  padding: 16px 24px;
+  border-radius: 8px;
+}
+
+.form{
+  margin-bottom: 10px;
+}
+
+.form > p{
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.email_div, .tel_div{
+  display: flex;
+  gap: 6px;
+}
+
+.email_div > input{
+  width: 60%;
+}
+
+.email_div > select{
+  width: 40%;
+}
+
+.btn_div{
+  text-align: right;
+}
+
