@@ -4,6 +4,7 @@ import ShopInput from '../common_component/ShopInput'
 import ShopButton from '../common_component/ShopButton'
 import axios from 'axios'
 import { loginUser } from '../apis/userApi'
+import { useNavigate } from 'react-router-dom'
 // axios.get으로 여러 데이터를 전달하는방법
 //axios.get('url',{params:전달할 데이터})
 
@@ -13,7 +14,8 @@ import { loginUser } from '../apis/userApi'
 // 1. @RequestParam을 사용해서 받거나,
 // 2. DTO객체로 데이터를 받으면 된다
 // PS. 리액트 2번 PDF Query string으로 전달된 데이터를 받는 방식(페이지번호 23번)
-const Login = () => {
+const Login = ({setLoginInfo}) => {
+  const nav = useNavigate();
   const[loginData,setloginData]= useState({
     userId: '',
     userPw:''
@@ -37,12 +39,27 @@ const Login = () => {
         } 
         else {
           alert('성공');
-         sessionStorage.setItem('userId', res.data.userId)
-         sessionStorage.setItem('userPw', res.data.userPw)
-         sessionStorage.setItem('userRoll', res.data.userRoll)
-         //로그인에 성공하면 
+          //로그인에 성공하면 
          //sessionStorage에 로그인하는 회원의 아이디, 이름, 권한 정보를 저장한다
+        //  sessionStorage.setItem('userId', res.data.userId)
+        //  sessionStorage.setItem('userName', res.data.userName)
+        //  sessionStorage.setItem('userRoll', res.data.userRoll)
+        //  sessionStorage.setItem('logInfo', res.data)
+        
+        //로그인한 회원의 아이디,이름,권한 정보만 가진 객체 생성
+        const loginInfo ={
+          userId : res.data.userId,
+          userName : res.data.userName,
+          userRoll : res.data.userRoll
         }
+
+        //loginInfo 객체를 json(객체형태로 생긴 문자열)으로 변환후 세션에 저장
+        //JSON.stringify(객체) -> 객체를 문자열화 (JSON)한다
+        // JSON.parse(json) -> json 데이터를 객체호 변환한다
+        sessionStorage.setItem('loginInfo',JSON.stringify(loginInfo));
+        setLoginInfo(loginInfo);
+        nav('/');
+      }
       })
       .catch();
   };

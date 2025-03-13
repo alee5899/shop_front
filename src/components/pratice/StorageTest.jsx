@@ -13,8 +13,8 @@ import React, { useEffect, useState } from 'react'
 const StorageTest = () => {
   // localStorage에 데이터를 저장하는 법
   useEffect(()=>{
-    localStorage.setItem('name','hong')
-    localStorage.setItem('age',20) 
+      localStorage.setItem('name','hong')
+      localStorage.setItem('age',20) 
 
     // sessionStorage.setItem('addr', '울산시')
   },[])
