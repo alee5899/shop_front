@@ -15,6 +15,7 @@ import State변경함수흐름3 from './components/pratice/State변경함수흐�
 import Login from './components/Login'
 import StorageTest from './components/pratice/StorageTest'
 import { useEffect, useState } from 'react'
+import UploadTest from './components/pratice/UploadTest'
 
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
     // sessionStorage에도 로그인 정보 저장
 
     // 새로고침하면
-    
+
     // 1.1.logInfo변수의 데이터는 초기화되낟
     // sessionStorage에 저장된 데이터는 유지된다
     // 3.app.jsx를 다시 읽고- -> useEffect가 실행
@@ -56,12 +57,16 @@ function App() {
 
   return (
     <div className='container'>
-      <StorageTest/>
+      {/* <StorageTest/> */}
+      <UploadTest/>
 
       <Routes>
 
         {/* 유저가 접속하는 페이지 */}
-        <Route path='/' element={<UserLayout loginInfo={loginInfo} setLoginInfo={setLoginInfo}/>} >
+        <Route path='/'
+         element={<UserLayout 
+         loginInfo={loginInfo} 
+         setLoginInfo={setLoginInfo}/>} >
 
         {/* 상품목록 페이지 */}
         <Route path='' element={<div>상품목록 페이지</div>}/>
@@ -80,7 +85,9 @@ function App() {
 
 
         {/* 관리자가 접속하는 페이지 */}
-        <Route path='/admin' element={<AdminLayout/>}>
+        <Route path='/admin' element={<AdminLayout 
+        loginInfo={loginInfo} 
+         setLoginInfo={setLoginInfo}/>}>
 
         {/* 상품등록 */}
         <Route path='reg-item' element={<ItemForm/>}/>
@@ -93,8 +100,6 @@ function App() {
 
         </Route>
         {/* 관리자가 접속하는 페이지 */}
-
-
         
       </Routes>
     </div>
