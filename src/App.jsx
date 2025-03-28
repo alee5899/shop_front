@@ -1,22 +1,12 @@
-import { Route, Routes } from 'react-router-dom'
+import { useEffect, useState } from 'react';
 import './App.css'
-import UserLayout from './components/UserLayout'
-import AdminLayout from './components/AdminLayout'
-import ItemForm from './components/ItemForm'
-import CateManange from './components/CateManange'
-import State변경함수흐름 from './components/pratice/State변경함수흐름'
-import Axios흐름 from './components/pratice/Axios흐름'
-import As from './components/pratice/Axios흐름'
-import ShopButton from './common_component/ShopButton'
-import ShopInput from './common_component/ShopInput'
-import Join from './components/Join'
-import State변경함수흐름2 from './components/pratice/State변경함수흐름2'
-import State변경함수흐름3 from './components/pratice/State변경함수흐름3'
-import Login from './components/Login'
-import StorageTest from './components/pratice/StorageTest'
-import { useEffect, useState } from 'react'
-import UploadTest from './components/pratice/UploadTest'
-
+import { Route, Routes } from 'react-router-dom';
+import Join from './routes/member/Join';
+import Login from './routes/member/Login';
+import UserLayout from './routes/common/AdminLayout'
+import AdminLayout from './routes/common/AdminLayout';
+import CateManange from './routes/book/CateManange';
+import ItemForm from './routes/book/ItemForm';
 
 function App() {
 
@@ -58,7 +48,9 @@ function App() {
   return (
     <div className='container'>
       {/* <StorageTest/> */}
-      <UploadTest/>
+      {/* <UploadTest/> */}
+
+      
 
       <Routes>
 

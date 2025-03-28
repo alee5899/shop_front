@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styles from './Login.module.css'
-import ShopInput from '../common_component/ShopInput'
-import ShopButton from '../common_component/ShopButton'
+import ShopInput from '../../common_component/ShopInput'
+import ShopButton from '../../common_component/ShopButton'
 import axios from 'axios'
-import { loginUser } from '../apis/userApi'
+import { loginUser } from '../../apis/userApi'
 import { useNavigate } from 'react-router-dom'
 // axios.get으로 여러 데이터를 전달하는방법
 //axios.get('url',{params:전달할 데이터})
@@ -33,11 +33,7 @@ const Login = ({setLoginInfo}) => {
       .then(res => {
         console.log(res.data);
   
-        // 자바에서 null 데이터가 넘어오면 ''(빈문자)로 받는다
-        if (res.data === '') {
-          alert('실패');
-        } 
-        else {
+   
           alert('성공');
           //로그인에 성공하면 
          //sessionStorage에 로그인하는 회원의 아이디, 이름, 권한 정보를 저장한다
@@ -62,9 +58,16 @@ const Login = ({setLoginInfo}) => {
         // 로그인한 유저의 권한에 따라 이동할 페이지를 지정
         // 일반회원 : 상품목록 페이지,관리자 : 상품등록 페이지
         nav(loginInfo.userRoll === 'USER' ? '/' : '/admin/reg-item');
-      }
       })
-      .catch();
+      .catch(e => {
+        if(e.status === 404){
+          alert(e.response.data);
+        }
+        else{
+          console.log(e)
+          alert('오류 발생.관리자 문의')
+        }
+      });
   };
   return (
     <div className={styles.container}>
